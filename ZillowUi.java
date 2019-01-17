@@ -98,12 +98,17 @@ public class ZillowUi {
 			driver.findElement(By.xpath("//*[@id='dencoder']")).sendKeys(sa[j]);
 			driver.findElement(By.xpath("//html/body/form/div/input[2]")).click();
 			WebElement ele1 = driver.findElement(By.xpath("//*[@id='dencoder']"));
+				try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 			ele1.sendKeys(Keys.CONTROL, "a");
 			// Thread.sleep(1000);
 			ele1.sendKeys(Keys.CONTROL, "c");
 			Actions actions = new Actions(driver);
 			actions.sendKeys(Keys.chord(Keys.LEFT_CONTROL, "v")).build().perform();
-			System.out.println(actions.toString() + "paste");
+			System.out.println(actions + "paste");
 
 			/*
 			 * driver.findElement(By.xpath("//*[@id='dencoder']")).sendKeys(sa);
